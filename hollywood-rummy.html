@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="cs">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:,">
+    <title>Hollywood rummy rules</title>
+  </head>
+  <body>
+    <header>
+      <nav class="site-nav-bar">
+        <ol class="crumbs">
+          <li class="crumbs__crumb">
+            <a href="/~tung">Tung Anh Vu</a>
+          </li>
+          <li class="crumbs__crumb">
+            Hollywood rummy rules
+          </li>
+        </ol>
+      </nav>
+      <h1>Hollywood rummy</h1>
+    </header>
+
+    <main>
+      <p>
+      During <a href="https://reu.dimacs.rutgers.edu/2022/2022Flyer.pdf">DIMACS REU 2022</a>, I learned of an amazing card game called Hollywood rummy.
+      On this page, I will try to explain the rules of the game.
+      </p>
+
+      <section>
+        <h2 id="requirements">Requirements</h2>
+        <ul>
+          <li>4 decks of playing cards <em>with Jokers included</em>, shuffled together.</li>
+          <li>Something for tracking points (pen &amp; paper is sufficient).</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 id="goal">Goal of the game</h2>
+        <p>
+        The game consists of up to 10 rounds.
+        In each round, players try to obtain a combination of cards, which is revealed to other players, and get rid of the remaining cards.
+        Players start their turn by drawing a card and they discard a card at the end; this is how players exchange cards.
+        A player, who manages to obtain the desired combination for the current round "wins" the round and receives 0 <em>penalty points</em>. (There are some further details regarding this, keep reading!)
+        Remaining players count the value of the cards in their hand and receive penalty points.
+        The player with the fewest penalty points at the end of all the rounds wins (just like in golf).
+        </p>
+      </section>
+
+      <section>
+        <h2 id="setup">Round setup</h2>
+        <p>
+        Each player is dealt 11 cards.
+        Depending on the current round, the goal is to obtain the following combination (meanings of combinations are explained <a href="#combinations">below</a>):
+        <ol>
+          <li>2 sets of 3,</li>
+          <li>2 sets of 3 and a run of 4,</li>
+          <li>2 sets of 4,</li>
+          <li>3 sets of 3 and a run of 4,</li>
+          <li>3 runs of 4,</li>
+          <li>1 set of 3 and a run of 7,</li>
+          <li>2 sets of 3 and a run of 5,</li>
+          <li>1 set of 3 and a run of 10,</li>
+          <li>3 sets of 4,</li>
+          <li>3 runs of 5 (a so called "perfect hand").</li>
+        </ol>
+        Then the top card is revealed, i.e. placed into the <em>discard pile</em>.
+        </p>
+      </section>
+
+      <section>
+        <h2 id="combinations">Combinations</h2>
+        <p>
+        A <em>set of X</em> is X cards of the same numeric value (the suit does not matter).
+        Note that if one has, e.g. 6 cards with value K, this is not considered to be 2 sets of 3 but only counts as one.
+        </p>
+
+        <p>
+        For the purposes of creating combinations, jokers and twos are considered to be <em>wild cards</em> and can substitute any card in a combination.
+        However, the number of wild cards in a combination cannot be more than a half of the combination.
+        E.g. one can have at most one wild card in a set of 3, and at most 2 wild cards in a set of 4, etc.
+        </p>
+
+        <p>
+        A <em>run of X</em> is a poker straight flush of length X.
+        Meaning that the numeric values of the cards have to be consecutive and all the suits must be the same.
+        Ace is always the highest cards, i.e. A cannot be followed by a 3 for a run (3 because 2 is a wild card, remember?).
+        Distinct runs have to have gaps between them.
+        E.g., 3, 4, 5, 6, 7, 8, 9, 10 is not considered to be 2 runs of 4 but just 1 run of 8.
+        </p>
+      </section>
+
+      <section>
+        <section>
+          <h2 id="turn">A player's turn</h2>
+          <p>
+          (It is customary for the player to the right of the dealer to go first.
+          The first player becomes the dealer in the next turn.)
+          </p>
+
+          <section>
+            <h3 id="drawing">Drawing</h3>
+            <p>
+            The current player starts by <em>drawing</em>.
+            They can either draw from the top of the deck or from the top of the discard pile.
+            </p>
+          </section>
+
+          <section>
+            <h3 id="going-down">Going down</h3>
+            <p>
+            If they have the current combination, they reveal the cards forming the combination in front of them.
+            This action is called <em>going down</em> (probably because the cards are placed down on the table).
+            </p>
+          </section>
+
+          <section>
+            <h3 id="went-down">A player who went down</h3>
+            <p>
+            If a player has gone down, then they can start getting rid of their remaining cards in their hand.
+            They do so by placing the cards in their hand into <em>any pile</em> of revealed downed cards.
+            E.g., if in the first round I went down with a set of three 7's, and a set of three 8's, and another player went down with a set of three aces, and a set of three kings, then I can discard my kings into his pile of kings.
+            In the same manner, one can discard cards by extending a run of any player.
+            All cards discard-able in this manner must be discarded so.
+            </p>
+          </section>
+
+          <section>
+            <h3 id="ending-a-turn">Ending a turn</h3>
+            <p>
+            A turn is ended by discarding a card into the discard pile.
+            There is an important distinction however:
+            <ul>
+              <li>
+                if the current player has not gone down, then they cannot discard cards that could extend other player's revealed downed combinations.
+                E.g., if another player has a run of 5, 6, 7, 8 of diamonds, then I cannot discard a 9 of diamonds, because it <em>plays</em> into this run.
+              </li>
+              <li>
+                If the current player has gone down, then they, by definition, discard a card that does not play.
+                Because if it plays, then they are obligated to play into the combination.
+              </li>
+            </ul>
+
+            Wild cards in runs have can be <em>shifted</em>.
+            E.g., if there is a run of 5, wild card , 7, and 8 of diamonds, then I can play a 6 of diamonds into the run and shift the wild card either to the start or the end of the run.
+            </p>
+
+            <p>The next player does not play yet however!</p>
+          </section>
+
+          <section>
+            <h3 id="buying">Buying</h3>
+            <p>
+            A discarded card can be <em>bought</em> by any other player.
+            The price for buying a card is that they have to draw an additional card from the deck to go with the bought card.
+            </p>
+
+            <p>
+            A player can only buy 3 times per round.
+            In the tenth round, a player can buy 4 times per round.
+            This can be tracked by the number of cards they have in hand.
+            I.e., 13 cards in hand means 1 buy, 15 cards in hand means 2 buys, etc.
+            </p>
+
+            <p>
+            If multiple players want to buy a card, then the player who goes the earliest after the discarder has priority.
+            There is an exception for the player right after the discarder: they can draw it without having to draw from the deck.
+            </p>
+          </section>
+        </section>
+
+        <section>
+          <h2 id="ending-a-round">Ending a round</h2>
+          <p>
+          A round is ended, when a player discards their last card into the discard pile.
+          This means that all their other cards were played into other combinations on the table of downed players, and their last card does not play anywhere.
+          Afterwards, every player counts the number of points of their hand.
+          <ul>
+            <li>3 to 9 have value 5,</li>
+            <li>10 to K have value 10,</li>
+            <li>A and wild cards have value 20.</li>
+          </ul>
+          </p>
+
+          <p>
+          The player who has gone down receives 0 penalty points by definition.
+          </p>
+
+          <p>
+          The player with the fewest penalty points at the end of all rounds is the winner.
+          I do not know how to resolve tie-breakers yet.
+          </p>
+        </section>
+      </section>
+    </main>
+  </body>
+</html>

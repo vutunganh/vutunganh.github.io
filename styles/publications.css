@@ -1,0 +1,56 @@
+.publications_list {
+  list-style-type: disclosure-closed;
+}
+
+.publications_list__entry {
+  display: grid;
+  grid-template-areas:
+    "title"
+    "links"
+    "coauthors";
+}
+
+@media screen and (min-width: 960px) {
+  .publications_list__entry {
+    grid-template-areas:
+      "title title"
+      "links coauthors";
+  }
+
+  .publications_list {
+    padding-left: 0;
+  }
+}
+
+.publications_list__entry__title {
+  grid-area: title;
+  font-size: 1.2em;
+}
+
+.publications_list__entry__coauthors {
+  grid-area: coauthors;
+  place-self: end end;
+}
+
+.publications_list__entry__links {
+  grid-area: links;
+  list-style: none;
+  padding-left: 0;
+}
+
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/list-style-type#accessibility_concerns */
+.publications_list__entry__links::before {
+  content: "\200B";
+}
+
+.publications_list__entry__links__link {
+  display: inline;
+}
+
+.publications_list__entry__links__link::before {
+  content: "[ ";
+}
+
+.publications_list__entry__links__link::after {
+  content: " ]";
+}
